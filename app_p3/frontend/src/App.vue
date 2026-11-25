@@ -132,8 +132,7 @@ onMounted(loadGames)
       <p v-else-if="!games.length" class="message">No hay juegos. Comprueba que el backend está activo.</p>
       <div v-else class="game-grid">
         <article v-for="game in sortedGames" :key="game.id" class="game-card">
-          <img v-if="game.image" :src="game.image" :alt="`Imagen de ${game.title}`">
-          <div class="game-content">
+          <img v-if="game.image" :src="game.image.startsWith('/') ? '.' + game.image : game.image" :alt="`Imagen de ${game.title}`">          <div class="game-content">
             <p class="eyebrow">{{ game.genre }} · {{ game.year }}</p>
             <h3>{{ game.title }}</h3>
             <p>{{ game.description }}</p>
