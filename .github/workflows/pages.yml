@@ -20,6 +20,8 @@ jobs:
           node-version: 22
       - run: npm ci
       - run: npm run build
+        env:
+          VITE_API_BASE_URL: https://arcade-api-mt8o.onrender.com/api
       - uses: actions/upload-pages-artifact@v3
         with:
           path: app_p3/frontend/dist
